@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_webrtc_chirp/before_connect.dart';
 import 'package:flutter_webrtc_chirp/prepare_connection.dart';
 
 void main() => runApp(MyApp());
@@ -29,19 +30,12 @@ class DataChannelWidget extends StatefulWidget {
 class _DataChannelWidgetState extends State<DataChannelWidget> {
 
   @override
-  void initState() {
-    super.initState();
-    PrepareConnection().createSelfInfo();
-  }
-
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Container(),
+      body: BeforeConnection(),
     );
   }
 }

@@ -20,10 +20,14 @@ dependencies:
   flutter:
     sdk: flutter
 
+  provider: ^4.0.2
   cupertino_icons: ^0.1.2
   flutter_webrtc: ^0.2.2
   shared_preferences:
   shared_preferences_macos:
+
+  chirp_flutter: ^1.0.1
+  permission: ^0.1.5
 
   # Required for MediaRecorder example
   path_provider:

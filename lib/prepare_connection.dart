@@ -24,14 +24,21 @@ final Map<String, dynamic> _dc_constraints = {
 };
 
 class PrepareConnection {
-  Future<dynamic> createSelfInfo() async {
-    // peerConnection setting
+  // peerConnection setting
+  Future<RTCPeerConnection> createSelfInfo() async {
     RTCPeerConnection pc = await createPeerConnection(_iceServers, _config);
+    return pc;
+  }
 
-    // getSelfSDP
+  // getSelfSDP
+  Future<RTCSessionDescription> createOffer(RTCPeerConnection pc) async {
     RTCSessionDescription s = await pc
         .createOffer(_dc_constraints);
-    print(s.sdp);
-    return pc;
+    return s;
+  }
+
+  Future<RTCSessionDescription> createAnswer(RTCPeerConnection pc) async {
+    RTCSessionDescription s = await pc.createAnswer(_dc_constraints);
+    return s;
   }
 }
